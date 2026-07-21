@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: cuaderno-devsecops
+  labels:
+    app: cuaderno-devsecops
+spec:
+  to:
+    kind: Service
+    name: cuaderno-devsecops
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

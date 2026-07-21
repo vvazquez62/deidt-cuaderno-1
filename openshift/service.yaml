@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cuaderno-devsecops
+  labels:
+    app: cuaderno-devsecops
+spec:
+  selector:
+    app: cuaderno-devsecops
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cuaderno interactivo de formación DevSecOps para la DEIDT, articulado con ITIL, TOGAF, OpenShift y las cuatro mesas funcionales.">
+  <title>Cuaderno interactivo DevSecOps · DEIDT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">DEIDT · Formación institucional</p>
+      <h1>Cuaderno interactivo DevSecOps</h1>
+      <p class="subtitle">Lenguaje común, evidencia, evaluación y avance por niveles</p>
+    </div>
+    <div class="top-actions">
+      <button id="fontToggle" class="secondary" type="button" aria-pressed="false">Texto grande</button>
+      <button id="contrastToggle" class="secondary" type="button" aria-pressed="false">Alto contraste</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación del curso">
+      <section class="profile-card" id="profileSummary">
+        <strong>Sin participante registrado</strong>
+        <span>Registre sus datos para iniciar.</span>
+      </section>
+      <div class="progress-card">
+        <div class="progress-heading"><span>Avance general</span><strong id="overallPercent">0%</strong></div>
+        <div class="progress-track" aria-hidden="true"><div id="overallBar" class="progress-fill"></div></div>
+        <small id="overallText">0 de 9 módulos aprobados</small>
+      </div>
+      <nav id="moduleNav" class="module-nav"></nav>
+      <hr>
+      <button class="nav-button" data-view="glossary" type="button">Glosario técnico</button>
+      <button class="nav-button" data-view="route" type="button">Ruta y Gantt</button>
+      <button class="nav-button" data-view="records" type="button">Registro y exportación</button>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <section id="welcomeView" class="view active">
+        <div class="hero-card">
+          <div>
+            <p class="eyebrow">Propósito</p>
+            <h2>Un lenguaje común para construir, liberar y operar servicios seguros</h2>
+            <p>El cuaderno guía al personal por conceptos esenciales de DevOps, DevSecOps, ITIL, TOGAF, OpenShift y gobierno institucional. Cada nivel exige fuentes revisadas, evidencia y evaluación.</p>
+          </div>
+          <div class="hero-badge" aria-label="Criterio de aprobación">80%<span>mínimo por módulo</span></div>
+        </div>
+
+        <div class="notice warning">
+          <strong>Prototipo demostrativo.</strong> En esta versión, el avance se guarda únicamente en el navegador del participante. Para un registro institucional centralizado se requiere autenticación, API, base de datos, repositorio de evidencias y auditoría.
+        </div>
+
+        <section class="card" aria-labelledby="enrollmentTitle">
+          <h2 id="enrollmentTitle">Registro del participante</h2>
+          <form id="enrollmentForm" class="form-grid">
+            <label>Nombre completo<input id="fullName" required autocomplete="name"></label>
+            <label>Número de empleado o identificador<input id="employeeId" required autocomplete="off"></label>
+            <label>Correo institucional<input id="email" type="email" required autocomplete="email"></label>
+            <label>Área o dirección<input id="area" required></label>
+            <label>Mesa principal
+              <select id="mesa" required>
+                <option value="">Seleccione…</option>
+                <option>Mesa de Competencia</option>
+                <option>Mesa de Arquitectura y Estándares</option>
+                <option>Mesa de Producción de Software</option>
+                <option>Mesa de Calidad y Productivo</option>
+                <option>Infraestructura / Continuidad</option>
+                <option>Ciberseguridad</option>
+                <option>Gobierno / Contrato</option>
+              </select>
+            </label>
+            <label>Rol<input id="role" placeholder="Ej. desarrollador, arquitecto, QA, PO"></label>
+            <div class="full-row consent-row">
+              <label class="check-label"><input id="consent" type="checkbox" required> Comprendo que esta versión conserva los datos sólo en este dispositivo.</label>
+            </div>
+            <div class="full-row actions"><button class="primary" type="submit">Registrar e iniciar</button></div>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Flujo de aprendizaje</h2>
+          <ol class="flow-list">
+            <li><strong>Comprender:</strong> resumen ejecutivo, conceptos y acrónimos.</li>
+            <li><strong>Contrastar:</strong> recorrido por fuentes oficiales.</li>
+            <li><strong>Aplicar:</strong> rutina y evidencia ligada a las cuatro mesas.</li>
+            <li><strong>Demostrar:</strong> evaluación mínima de 80%.</li>
+            <li><strong>Avanzar:</strong> el siguiente nivel se habilita sólo al aprobar.</li>
+          </ol>
+        </section>
+      </section>
+
+      <section id="moduleView" class="view" aria-live="polite"></section>
+      <section id="glossaryView" class="view"></section>
+      <section id="routeView" class="view"></section>
+      <section id="recordsView" class="view"></section>
+    </main>
+  </div>
+
+  <footer>
+    <p>Cuaderno de formación interna · DEIDT / DGTIC · Prototipo V01</p>
+  </footer>
+
+  <script src="course-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
